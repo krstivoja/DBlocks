@@ -17,7 +17,11 @@ registerBlockType( 'my-plugin/my-block', {
         },
         wrapper: {
             type: 'string',
-            default: 'section',
+            default: 'div',
+        },
+        position: {
+            type: 'string',
+            default: 'statis',
         },
     },
     edit: function( props ) {
@@ -27,7 +31,42 @@ registerBlockType( 'my-plugin/my-block', {
         return (
 			<div { ...blockProps }>
 				<InspectorControls>
-					<PanelBody title="My Block Settings">
+					<PanelBody title="HTML Tag">						
+							<SelectControl 
+								id="my-block-wrapper"
+								value={ attributes.wrapper }
+								onChange={ ( newWrapper ) => setAttributes( { wrapper: newWrapper } ) }
+								options={ [
+									{ label: 'div', value: 'div' },
+									{ label: 'section', value: 'section' },
+									{ label: 'article', value: 'article' },
+									{ label: 'span', value: 'span' },
+									{ label: 'main', value: 'main' },
+									{ label: 'aside', value: 'aside' },
+									{ label: 'nav', value: 'nav' },
+									{ label: 'header', value: 'header' },
+									{ label: 'footer', value: 'footer' }
+								] }
+							/>
+						
+					</PanelBody>
+					<PanelBody title="Position">						
+							<SelectControl 
+								id="my-block-display"
+								value={ attributes.position }
+								onChange={ ( newPosition ) => setAttributes( { position: newPosition } ) }
+								options={ [
+									{ label: 'static', value: 'static' },
+									{ label: 'relative', value: 'relative' },
+									{ label: 'absolute', value: 'absolute' },
+									{ label: 'fixed', value: 'fixed' },
+									{ label: 'sticky', value: 'sticky' },
+									{ label: 'unset', value: 'unset' }
+								] }
+							/>
+						
+					</PanelBody>
+					<PanelBody title="Display">
 						<PanelRow>
 							<label htmlFor="my-block-title">Block Title:</label>
 							<input 
