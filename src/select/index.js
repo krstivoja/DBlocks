@@ -1,6 +1,6 @@
 import icon from './icon';
 import { registerBlockType } from '@wordpress/blocks';
-import { PanelBody, SelectControl, PanelRow } from '@wordpress/components';
+import { PanelBody, SelectControl, PanelRow, TextControl  } from '@wordpress/components';
 import { useBlockProps, InnerBlocks, InspectorControls } from '@wordpress/block-editor';
 
 registerBlockType( 'my-plugin/my-block', {
@@ -63,7 +63,9 @@ registerBlockType( 'my-plugin/my-block', {
 									{ label: 'sticky', value: 'sticky' },
 									{ label: 'unset', value: 'unset' }
 								] }
-							/>						
+							/>		
+							
+											
 					</PanelBody>
 					<PanelBody title="Display">
 						<PanelRow>
