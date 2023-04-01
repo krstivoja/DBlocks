@@ -85,7 +85,7 @@ registerBlockType( 'my-plugin/my-block', {
 									style={{
 										background: "#ececec",
 										padding: "20px",
-										marginTop: "-10px";
+										marginTop: "-10px",
 								  	}}
 								>			
 								
