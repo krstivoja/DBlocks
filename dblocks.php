@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       D Blocks
+ * Plugin Name:       Dblocks
  * Description:       A Gutenberg block to show your pride! This block enables you to type text and style it with the color font Gilbert from Type with Pride.
  * Version:           0.1.0
  * Requires at least: 6.1
@@ -20,7 +20,9 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
+
 function create_block_dblocks_block_init() {
-	register_block_type( __DIR__ . '/build/static-block' );
+	register_block_type( __DIR__ . '/build/template/' );
+	register_block_type( __DIR__ . '/build/static/' );
 }
 add_action( 'init', 'create_block_dblocks_block_init' );

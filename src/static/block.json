@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "dblocks/static-block",
+	"name": "dblocks/static",
 	"version": "0.1.0",
-	"title": "marko",
+	"title": "Static",
 	"category": "text",
-	"icon": "flag",
+	"icon": "admin-appearance",
 	"description": "A Gutenberg block to show your pride! This block enables you to type text and style it with the color font Gilbert from Type with Pride.",
 	"attributes": {
 		"message": {
@@ -17,7 +17,7 @@
 	"supports": {
 		"html": false
 	},
-	"textdomain": "static-block",
+	"textdomain": "dblocks",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"
