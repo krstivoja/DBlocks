@@ -1,6 +1,6 @@
 import icon from './icon';
 import { registerBlockType } from '@wordpress/blocks';
-import { Panel, PanelBody, PanelRow, SelectControl } from '@wordpress/components';
+import { PanelBody, SelectControl, PanelRow } from '@wordpress/components';
 import { useBlockProps, InnerBlocks, InspectorControls } from '@wordpress/block-editor';
 
 registerBlockType( 'my-plugin/my-block', {
@@ -21,7 +21,7 @@ registerBlockType( 'my-plugin/my-block', {
         },
         position: {
             type: 'string',
-            default: 'statis',
+            default: 'static',
         },
     },
     edit: function( props ) {
@@ -52,7 +52,7 @@ registerBlockType( 'my-plugin/my-block', {
 					</PanelBody>
 					<PanelBody title="Position">						
 							<SelectControl 
-								id="my-block-display"
+								id="my-block-position"
 								value={ attributes.position }
 								onChange={ ( newPosition ) => setAttributes( { position: newPosition } ) }
 								options={ [
@@ -63,8 +63,7 @@ registerBlockType( 'my-plugin/my-block', {
 									{ label: 'sticky', value: 'sticky' },
 									{ label: 'unset', value: 'unset' }
 								] }
-							/>
-						
+							/>						
 					</PanelBody>
 					<PanelBody title="Display">
 						<PanelRow>
@@ -94,9 +93,15 @@ registerBlockType( 'my-plugin/my-block', {
 			</div>
 		);
 	},
+	
 	save: function( props ) {
 		const { attributes } = props;
-		const blockProps = useBlockProps.save();
+		const blockProps = useBlockProps.save({
+			className: `custom-class`,
+			style: {
+				position: attributes.position,
+			}
+		});
 		return (
 			<attributes.wrapper { ...blockProps }>
 				<h2>{ attributes.title }</h2>
