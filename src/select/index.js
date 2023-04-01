@@ -23,6 +23,22 @@ registerBlockType( 'my-plugin/my-block', {
             type: 'string',
             default: 'static',
         },
+		top: {
+			type: 'string',
+			default: '',
+		},
+		bottom: {
+			type: 'string',
+			default: '',
+		},
+		left: {
+			type: 'string',
+			default: '',
+		},
+		right: {
+			type: 'string',
+			default: '',
+		},
     },
     edit: function( props ) {
         const { attributes, setAttributes } = props;
@@ -64,7 +80,37 @@ registerBlockType( 'my-plugin/my-block', {
 									{ label: 'unset', value: 'unset' }
 								] }
 							/>		
-							
+							{ (attributes.position !== 'static' && attributes.position !== 'unset') && (
+								<div 
+									style={{
+										background: "#ececec",
+										padding: "20px",
+										marginTop: "-10px";
+								  	}}
+								>			
+								
+										<TextControl
+											label="Top"
+											value={ attributes.top }
+											onChange={ ( newTop ) => setAttributes( { top: newTop } ) }
+										/>
+										<TextControl
+											label="Bottom"
+											value={ attributes.bottom }
+											onChange={ ( newBottom ) => setAttributes( { bottom: newBottom } ) }
+										/>
+										<TextControl
+											label="Left"
+											value={ attributes.left }
+											onChange={ ( newLeft ) => setAttributes( { left: newLeft } ) }
+										/>
+										<TextControl
+											label="Right"
+											value={ attributes.right }
+											onChange={ ( newRight ) => setAttributes( { right: newRight } ) }
+										/>
+									</div>			
+							)}
 											
 					</PanelBody>
 					<PanelBody title="Display">
@@ -102,6 +148,10 @@ registerBlockType( 'my-plugin/my-block', {
 			className: `custom-class`,
 			style: {
 				position: attributes.position,
+				top: attributes.top,
+				bottom: attributes.bottom,
+				left: attributes.left,
+				right: attributes.right,
 			}
 		});
 		return (
@@ -111,4 +161,5 @@ registerBlockType( 'my-plugin/my-block', {
 			</attributes.wrapper>
 		);
 	},
+	
 } );
