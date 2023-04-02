@@ -8,7 +8,8 @@ import {
     __experimentalToggleGroupControlOption,
 	__experimentalToggleGroupControlOptionIcon,
     __experimentalBoxControl,
-	Path, SVG
+    Flex,
+    __experimentalUnitControl
 } from '@wordpress/components';
 import { useBlockProps, InnerBlocks, InspectorControls,  } from '@wordpress/block-editor';
 
@@ -16,15 +17,6 @@ export default function edit( props ) {
     const { attributes, setAttributes } = props;
     const blockProps = useBlockProps();
     
-    function setValues( newTop, newRight, newBottom, newLeft ) {
-        setAttributes( {
-            top: newTop,
-            right: newRight,
-            bottom: newBottom,
-            left: newLeft,
-        } );
-    }
-
     return (
         <attributes.wrapper { ...blockProps }>
             <InspectorControls>
@@ -276,11 +268,43 @@ export default function edit( props ) {
 
                         { (attributes.position !== 'static' && attributes.position !== 'unset' && attributes.position !== '') && (
                             
-                                <__experimentalBoxControl
-                                        label={'Location'}
-                                        values={ { top: attributes.top, right: attributes.right, bottom: attributes.bottom, left: attributes.left } }
-                                        onChange={ ( newValues ) => setValues( newValues.top, newValues.right, newValues.bottom, newValues.left ) }
-                                />	                            
+
+                                <div 
+									style={{
+										background: "#f0f0f0",
+										padding: "20px",
+										marginTop: "-10px",
+								  	}}
+								>			
+                                    <Flex style={{
+                                        alignItems: "flex-start"
+                                    }}>
+										<__experimentalUnitControl
+											label="Top"
+											value={ attributes.top }
+											onChange={ ( newTop ) => setAttributes( { top: newTop } ) }
+										/>
+                                        <__experimentalUnitControl
+                                            label="Bottom"
+                                            value={ attributes.bottom }
+                                            onChange={ ( newBottom ) => setAttributes( { bottom: newBottom } ) }
+                                        />
+                                    </Flex>    
+                                    <Flex style={{
+                                        alignItems: "flex-start"
+                                    }}>
+                                        <__experimentalUnitControl
+                                            label="Left"
+                                            value={ attributes.left }
+                                            onChange={ ( newLeft ) => setAttributes( { left: newLeft } ) }
+                                        />
+                                        <__experimentalUnitControl
+                                            label="Right"
+                                            value={ attributes.right }
+                                            onChange={ ( newRight ) => setAttributes( { right: newRight } ) }
+                                        />
+                                    </Flex>       
+							</div>		                           
                             			
                         )}
                                         
