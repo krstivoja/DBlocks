@@ -1,22 +1,27 @@
 import icon from './icon';
+import * as Icons from './icons';
+import save from './save';
+import edit from './edit';
 import { registerBlockType } from '@wordpress/blocks';
 import { 
     PanelBody, 
     SelectControl, 
     TextControl, 
     __experimentalToggleGroupControl, 
-    __experimentalToggleGroupControlOption  
+    __experimentalToggleGroupControlOption,
+	__experimentalToggleGroupControlOptionIcon,
+	Path, SVG
 } from '@wordpress/components';
 import { useBlockProps, InnerBlocks, InspectorControls,  } from '@wordpress/block-editor';
 
-registerBlockType( 'my-plugin/my-block', {
-    title: 'My Block',
+registerBlockType( 'dblocks/wrapper', {
+    title: 'Ultimate Wrapper',
     icon,
     category: 'common',
     supports: {
 		align: [ "wide", "full" ],
 		anchor: true,
-        html: false, // Disable default HTML support
+        html: true,
 		color: {
 			"gradients": true,
 			"link": true,
@@ -85,113 +90,9 @@ registerBlockType( 'my-plugin/my-block', {
 			default: 'block',
 		},
     },
-    edit: function( props ) {
-        const { attributes, setAttributes } = props;
-        const blockProps = useBlockProps();
-				
-        return (
-			<attributes.wrapper { ...blockProps }>
-				<InspectorControls>
-					<PanelBody title="HTML Tag">						
-							<SelectControl 
-								id="my-block-wrapper"
-								value={ attributes.wrapper }
-								onChange={ ( newWrapper ) => setAttributes( { wrapper: newWrapper } ) }
-								options={ [
-									{ label: 'div', value: 'div' },
-									{ label: 'section', value: 'section' },
-									{ label: 'article', value: 'article' },
-									{ label: 'span', value: 'span' },
-									{ label: 'main', value: 'main' },
-									{ label: 'aside', value: 'aside' },
-									{ label: 'nav', value: 'nav' },
-									{ label: 'header', value: 'header' },
-									{ label: 'footer', value: 'footer' }
-								] }
-							/>
-						
-					</PanelBody>
-					<PanelBody title="Position">						
-							<SelectControl 
-								id="my-block-position"
-								value={ attributes.position }
-								onChange={ ( newPosition ) => setAttributes( { position: newPosition } ) }
-								options={ [
-									{ label: 'static', value: 'static' },
-									{ label: 'relative', value: 'relative' },
-									{ label: 'absolute', value: 'absolute' },
-									{ label: 'fixed', value: 'fixed' },
-									{ label: 'sticky', value: 'sticky' },
-									{ label: 'unset', value: 'unset' }
-								] }
-							/>		
-							{ (attributes.position !== 'static' && attributes.position !== 'unset') && (
-								<div 
-									style={{
-										background: "#ececec",
-										padding: "20px",
-										marginTop: "-10px",
-								  	}}
-								>			
-								
-										<TextControl
-											label="Top"
-											value={ attributes.top }
-											onChange={ ( newTop ) => setAttributes( { top: newTop } ) }
-										/>
-										<TextControl
-											label="Bottom"
-											value={ attributes.bottom }
-											onChange={ ( newBottom ) => setAttributes( { bottom: newBottom } ) }
-										/>
-										<TextControl
-											label="Left"
-											value={ attributes.left }
-											onChange={ ( newLeft ) => setAttributes( { left: newLeft } ) }
-										/>
-										<TextControl
-											label="Right"
-											value={ attributes.right }
-											onChange={ ( newRight ) => setAttributes( { right: newRight } ) }
-										/>
-									</div>			
-							)}
-											
-					</PanelBody>
-					<PanelBody title="Dislpay">		
 
-						<__experimentalToggleGroupControl label="my label" value={attributes.display} onChange={(newDisplay) => setAttributes({ display: newDisplay })} isBlock>
-							<__experimentalToggleGroupControlOption value="block" label="block"/>
-							<__experimentalToggleGroupControlOption value="flex" label="flex" />
-							<__experimentalToggleGroupControlOption value="grid" label="grid" />
-						</__experimentalToggleGroupControl>
-				
-					</PanelBody>
-
-
-				</InspectorControls>
-				<InnerBlocks />				
-			</attributes.wrapper>
-		);
-	},
+	edit
 	
-	save: function( props ) {
-		const { attributes } = props;
-		const blockProps = useBlockProps.save({
-			className: `custom-class`,
-			style: {
-				position: attributes.position,
-				top: attributes.top,
-				bottom: attributes.bottom,
-				left: attributes.left,
-				right: attributes.right,
-			}
-		});
-		return (
-			<attributes.wrapper { ...blockProps }>
-				<InnerBlocks.Content />
-			</attributes.wrapper>
-		);
-	},
+	save
 	
 } );

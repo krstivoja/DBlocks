@@ -15,7 +15,7 @@
 		}
 	},
 	"supports": {
-		"html": false
+		"html": true
 	},
 	"textdomain": "dblocks",
 	"editorScript": "file:./index.js",
