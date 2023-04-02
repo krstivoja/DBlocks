@@ -7,7 +7,7 @@ import './style.scss'; // Import the style.scss file here
 import './editor.scss'; // Import the style.scss file here
 
 registerBlockType( 'dblocks/wrapper', {
-    title: 'Ultimate Wrapper',
+    title: 'Wrapper',
     icon: Icons.ultimateWrapper,
     category: 'common',
     supports: {

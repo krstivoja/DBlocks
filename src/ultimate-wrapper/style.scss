@@ -1,0 +1,64 @@
+.wp-block-dblocks-ultimate-wrapper {
+	background-color: rgb(241, 119, 235);
+}
+
+$position: static, relative, absolute, fixed, sticky, unset;
+@each $value in $position {
+	.#{$value} {
+	  position: $value;
+	}
+}
+
+$display: block, flex, grid;
+@each $value in $display {
+	.#{$value} {
+	  display: $value;
+	}
+}
+
+// Flex Direction
+.flex-row			{flex-direction: row;}
+.flex-row-reverse	{flex-direction: row-reverse;}
+.flex-col			{flex-direction: column;}
+.flex-col-reverse	{flex-direction: column-reverse;}
+
+// Flex Wrap
+.flex-wrap		{flex-wrap: wrap;}
+.flex-nowrap	{flex-wrap: nowrap;}
+
+// Align Content
+.content-normal		{align-content: normal;}
+.content-center		{align-content: center;}
+.content-start		{align-content: flex-start;}
+.content-end		{align-content: flex-end;}
+.content-between	{align-content: space-between;}
+.content-around		{align-content: space-around;}
+.content-evenly		{align-content: space-evenly;}
+.content-baseline	{align-content: baseline;}
+.content-stretch	{align-content: stretch;}
+
+// Justify Content
+.justify-normal		{justify-content: normal;}
+.justify-start		{justify-content: flex-start;}
+.justify-end		{justify-content: flex-end;}
+.justify-center		{justify-content: center;}
+.justify-between	{justify-content: space-between;}
+.justify-around		{justify-content: space-around;}
+.justify-evenly		{justify-content: space-evenly;}
+.justify-stretch	{justify-content: stretch;}
+
+// Align Items
+.items-start	{align-items: flex-start;}
+.items-end		{align-items: flex-end;}
+.items-center	{align-items: center;}
+.items-baseline	{align-items: baseline;}
+.items-stretch	{align-items: stretch;}
+
+// Justify Items
+.justify-items-start	{justify-items: start;}
+.justify-items-end		{justify-items: end;}
+.justify-items-center	{justify-items: center;}
+.justify-items-stretch	{justify-items: stretch;}
+
+
+
