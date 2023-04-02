@@ -1,4 +1,17 @@
-edit: function( props ) {
+import './style.scss';
+import * as Icons from './icons';
+import { 
+    PanelBody, 
+    SelectControl, 
+    TextControl, 
+    __experimentalToggleGroupControl, 
+    __experimentalToggleGroupControlOption,
+	__experimentalToggleGroupControlOptionIcon,
+	Path, SVG
+} from '@wordpress/components';
+import { useBlockProps, InnerBlocks, InspectorControls,  } from '@wordpress/block-editor';
+
+export default function edit( props ) {
     const { attributes, setAttributes } = props;
     const blockProps = useBlockProps();
             
@@ -38,6 +51,7 @@ edit: function( props ) {
                                 { label: 'unset', value: 'unset' }
                             ] }
                         />		
+
                         { (attributes.position !== 'static' && attributes.position !== 'unset') && (
                             <div 
                                 style={{

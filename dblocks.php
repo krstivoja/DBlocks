@@ -24,6 +24,6 @@
 function create_block_dblocks_block_init() {
 	// register_block_type( __DIR__ . '/build/template/' );
 	// register_block_type( __DIR__ . '/build/static/' );
-	register_block_type( __DIR__ . '/build/select/' );
+	register_block_type( __DIR__ . '/build/wrapper/' );
 }
 add_action( 'init', 'create_block_dblocks_block_init' );
