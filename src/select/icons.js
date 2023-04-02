@@ -1,4 +1,6 @@
-import React from 'react';
+export const ultimateWrapper = () => (
+<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24"><path d="M204 927q-30.938 0-52.969-22.031Q129 882.938 129 852V300q0-30.938 22.031-52.969Q173.062 225 204 225h552q30.938 0 52.969 22.031Q831 269.062 831 300v552q0 30.938-22.031 52.969Q786.938 927 756 927H204Zm0-75h238.5V300H204v552Zm313.5 0H756V576H517.5v276Zm0-351H756V300H517.5v201Z"/></svg>
+);
 
 export const flexDirection1 = () => (
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" >

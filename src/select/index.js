@@ -15,7 +15,7 @@ import { useBlockProps, InnerBlocks, InspectorControls,  } from '@wordpress/bloc
 
 registerBlockType( 'dblocks/wrapper', {
     title: 'Ultimate Wrapper',
-    icon,
+    icon: Icons.ultimateWrapper,
     category: 'common',
     supports: {
 		align: [ "wide", "full" ],
@@ -129,6 +129,7 @@ registerBlockType( 'dblocks/wrapper', {
 									{ label: 'unset', value: 'unset' }
 								] }
 							/>		
+
 							{ (attributes.position !== 'static' && attributes.position !== 'unset') && (
 								<div 
 									style={{
