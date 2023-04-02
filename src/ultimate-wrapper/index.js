@@ -14,7 +14,7 @@ registerBlockType( metadata.name, {
         },
         position: {
             type: 'string',
-            default: 'static',
+            default: '',
         },
 		top: {
 			type: 'string',

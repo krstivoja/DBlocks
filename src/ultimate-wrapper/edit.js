@@ -30,7 +30,25 @@ export default function edit( props ) {
             <InspectorControls>
 
                 <PanelBody title="Display">		
-                    <__experimentalToggleGroupControl label="display" value={attributes.display} onChange={(newDisplay) => setAttributes({ display: newDisplay })} isBlock>
+                    <__experimentalToggleGroupControl 
+                        label="display" 
+                        value={attributes.display} 
+                        onChange={(newDisplay) => {
+                            setAttributes({ 
+                                display: newDisplay,
+                                flexDirection: newDisplay !== 'flex' ? '' : attributes.flexDirection,
+                                flexWrap: newDisplay !== 'flex' ? '' : attributes.flexWrap,
+                                alignContent: newDisplay !== 'flex' ? '' : attributes.alignContent,
+                                justifyContent: newDisplay !== 'flex' ? '' : attributes.justifyContent,
+                                alignItems: newDisplay !== 'flex' ? '' : attributes.alignItems,
+                                alignContent:  newDisplay !== 'grid' ? '' : attributes.alignContent,
+                                justifyContent:  newDisplay !== 'grid' ? '' : attributes.justifyContent,
+                                alignItems:  newDisplay !== 'grid' ? '' : attributes.alignItems,
+                                justifyItems:  newDisplay !== 'grid' ? '' : attributes.justifyItems
+                            })
+                        }} 
+                        
+                        isBlock>
                         <__experimentalToggleGroupControlOption value="block" label="block"/>
                         <__experimentalToggleGroupControlOption value="flex" label="flex" />
                         <__experimentalToggleGroupControlOption value="grid" label="grid" />
@@ -246,6 +264,7 @@ export default function edit( props ) {
                             value={ attributes.position }
                             onChange={ ( newPosition ) => setAttributes( { position: newPosition } ) }
                             options={ [
+                                { label: 'Not set', value: '' },
                                 { label: 'static', value: 'static' },
                                 { label: 'relative', value: 'relative' },
                                 { label: 'absolute', value: 'absolute' },
@@ -255,7 +274,7 @@ export default function edit( props ) {
                             ] }
                         />		
 
-                        { (attributes.position !== 'static' && attributes.position !== 'unset') && (
+                        { (attributes.position !== 'static' && attributes.position !== 'unset' && attributes.position !== '') && (
                             
                                 <__experimentalBoxControl
                                         label={'Location'}
