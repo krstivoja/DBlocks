@@ -1,14 +1,55 @@
 import icon from './icon';
 import { registerBlockType } from '@wordpress/blocks';
-import { PanelBody, SelectControl, PanelRow, TextControl  } from '@wordpress/components';
-import { useBlockProps, InnerBlocks, InspectorControls } from '@wordpress/block-editor';
+import { 
+    PanelBody, 
+    SelectControl, 
+    TextControl, 
+    __experimentalToggleGroupControl, 
+    __experimentalToggleGroupControlOption  
+} from '@wordpress/components';
+import { useBlockProps, InnerBlocks, InspectorControls,  } from '@wordpress/block-editor';
 
 registerBlockType( 'my-plugin/my-block', {
     title: 'My Block',
     icon,
     category: 'common',
     supports: {
+		align: [ "wide", "full" ],
+		anchor: true,
         html: false, // Disable default HTML support
+		color: {
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		spacing: {
+			"margin": [ "top", "bottom" ],
+			"padding": true,
+			"blockGap": true,
+			"__experimentalDefaultControls": {
+				"padding": true,
+				"blockGap": true
+			}
+		},
+		dimensions: {
+			"minHeight": true
+		},
+		__experimentalBorder: {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		},
+		
     },
     attributes: {
         title: {
@@ -39,13 +80,17 @@ registerBlockType( 'my-plugin/my-block', {
 			type: 'string',
 			default: '',
 		},
+		display: {
+			type: 'string',
+			default: 'block',
+		},
     },
     edit: function( props ) {
         const { attributes, setAttributes } = props;
         const blockProps = useBlockProps();
 				
         return (
-			<div { ...blockProps }>
+			<attributes.wrapper { ...blockProps }>
 				<InspectorControls>
 					<PanelBody title="HTML Tag">						
 							<SelectControl 
@@ -113,32 +158,20 @@ registerBlockType( 'my-plugin/my-block', {
 							)}
 											
 					</PanelBody>
-					<PanelBody title="Display">
-						<PanelRow>
-							<label htmlFor="my-block-title">Block Title:</label>
-							<input 
-								type="text" 
-								value={ attributes.title } 
-								onChange={ (e) => setAttributes( { title: e.target.value } ) }
-							/>
-						</PanelRow>
-						<PanelRow>
-							<label htmlFor="my-block-wrapper">Wrapper:</label>
-							<SelectControl 
-								id="my-block-wrapper"
-								value={ attributes.wrapper }
-								onChange={ ( newWrapper ) => setAttributes( { wrapper: newWrapper } ) }
-								options={ [
-									{ label: 'div', value: 'div' },
-									{ label: 'section', value: 'section' },
-									{ label: 'article', value: 'article' },
-								] }
-							/>
-						</PanelRow>
+					<PanelBody title="Dislpay">		
+
+						<__experimentalToggleGroupControl label="my label" value={attributes.display} onChange={(newDisplay) => setAttributes({ display: newDisplay })} isBlock>
+							<__experimentalToggleGroupControlOption value="block" label="block"/>
+							<__experimentalToggleGroupControlOption value="flex" label="flex" />
+							<__experimentalToggleGroupControlOption value="grid" label="grid" />
+						</__experimentalToggleGroupControl>
+				
 					</PanelBody>
+
+
 				</InspectorControls>
-				<InnerBlocks />
-			</div>
+				<InnerBlocks />				
+			</attributes.wrapper>
 		);
 	},
 	
@@ -156,7 +189,6 @@ registerBlockType( 'my-plugin/my-block', {
 		});
 		return (
 			<attributes.wrapper { ...blockProps }>
-				<h2>{ attributes.title }</h2>
 				<InnerBlocks.Content />
 			</attributes.wrapper>
 		);
