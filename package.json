@@ -16,5 +16,9 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^26.1.0"
+	},
+	"dependencies": {
+		"@wordpress/icons": "^9.21.0",
+		"sortablejs": "^1.15.0"
 	}
 }

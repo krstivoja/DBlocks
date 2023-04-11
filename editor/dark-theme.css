@@ -1,0 +1,130 @@
+:root {
+  --swk-editor--border: #515151;
+  --swk-editor--text: #e1e1e1;
+  --wp-components-color-accent: #0F81E6;
+  --swk-editor-50: #fafafa;
+  --swk-editor-100: #f4f4f5;
+  --swk-editor-200: #e4e4e7;
+  --swk-editor-300: #d4d4d8;
+  --swk-editor-400: #a1a1aa;
+  --swk-editor-500: #71717a;
+  --swk-editor-600: #52525b;
+  --swk-editor-700: #3f3f46;
+  --swk-editor-800: #27272a;
+  --swk-editor-900: #18181b;
+  --swk-editor-950: #09090b;
+  --wp-components-color-foreground: var(--swk-editor-300);
+}
+
+.interface-interface-skeleton__header,
+.edit-post-header {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+.components-popover__content,
+.components-menu-group {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+.components-dropdown-menu__menu .components-menu-group + .components-menu-group {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+.components-panel__header {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+.interface-navigable-region.interface-interface-skeleton__secondary-sidebar {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+.components-panel {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+.interface-interface-skeleton__sidebar {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+.components-panel__body {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+.interface-complementary-area h2 {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+.components-panel__body-toggle.components-button {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+.components-panel__body-toggle.components-button:hover {
+  background: var(--swk-editor-800);
+}
+
+.components-popover.block-editor-block-popover:not(.block-editor-block-popover__inbetween, .block-editor-block-popover__drop-zone, .block-editor-block-list__block-side-inserter-popover) .components-popover__content * {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+select {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+.components-input-control__container {
+  background: var(--swk-editor-900);
+  color: var(--swk-editor-300);
+  border-color: var(--swk-editor-700) !important;
+}
+
+:root {
+  --wp-admin-theme-color: var(--wp-components-color-accent);
+  --wp-admin-theme-color--rgb: 0,124,186;
+  --wp-admin-theme-color-darker-10: #006ba1;
+  --wp-admin-theme-color-darker-10--rgb: 0,107,161;
+  --wp-admin-theme-color-darker-20: #005a87;
+  --wp-admin-theme-color-darker-20--rgb: 0,90,135;
+  --wp-admin-border-width-focus: 2px;
+  --wp-block-synced-color: #7a00df;
+  --wp-block-synced-color--rgb: 122,0,223;
+}
+
+.editor-styles-wrapper {
+  background-color: #2a2a2a !important;
+  background-color: var(--swk-editor-800) !important;
+  color: var(--swk-editor-400) !important;
+  font-family: var(--wp--preset--font-family--system-font);
+  font-size: var(--wp--preset--font-size--medium);
+  line-height: 1.6;
+  --wp--style--root--padding-top: var(--wp--preset--spacing--40);
+  --wp--style--root--padding-right: var(--wp--preset--spacing--30);
+  --wp--style--root--padding-bottom: var(--wp--preset--spacing--40);
+  --wp--style--root--padding-left: var(--wp--preset--spacing--30);
+}
+
+.editor-styles-wrapper p:hover, .editor-styles-wrapper h1:hover, .editor-styles-wrapper h2:hover, .editor-styles-wrapper h3:hover, .editor-styles-wrapper h4:hover, .editor-styles-wrapper pre:hover {
+  color: var(--swk-editor-300) !important;
+  transition: all 0.2s ease;
+}

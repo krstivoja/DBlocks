@@ -1,0 +1,245 @@
+
+:root{
+    --swk-editor--border: #515151;
+    --swk-editor--text: #e1e1e1;
+    --wp-components-color-accent: #0F81E6;
+
+    // Zink
+    --swk-editor-50: #fafafa;
+    --swk-editor-100: #f4f4f5;
+    --swk-editor-200: #e4e4e7;
+    --swk-editor-300: #d4d4d8;
+    --swk-editor-400: #a1a1aa;
+    --swk-editor-500: #71717a;
+    --swk-editor-600: #52525b;
+    --swk-editor-700: #3f3f46;
+    --swk-editor-800: #27272a;
+    --swk-editor-900: #18181b;
+    --swk-editor-950: #09090b;
+
+    // WP Overwrite
+
+    --wp-components-color-foreground: var(--swk-editor-300);
+}
+
+@mixin bg{
+    background: var(--swk-editor-900);
+    color: var(--swk-editor-300);
+    border-color: var(--swk-editor-700) !important;
+}
+
+@mixin bg_hover{
+    background: var(--swk-editor-900);
+    color: var(--swk-editor-300);
+    border-color: var(--swk-editor-700) !important;
+
+    &:hover{
+        background: var(--swk-editor-800);
+    }
+}
+
+@mixin bg2{
+    background: var(--editor-800);
+    color: var(--swk-editor-300);
+    border-color: var(--swk-editor-700);
+}
+
+
+
+// ********************************************************
+// Topbar
+// ********************************************************
+
+.interface-interface-skeleton__header,
+.edit-post-header{
+    @include bg;
+}
+
+.components-popover__content,
+.components-menu-group{
+    @include bg;
+}
+
+.components-dropdown-menu__menu .components-menu-group+.components-menu-group {
+    @include bg;
+}
+
+
+
+// ********************************************************
+// Left Side
+// ********************************************************
+
+// Structure Tree
+.components-panel__header{
+    @include bg;
+}
+
+.interface-navigable-region.interface-interface-skeleton__secondary-sidebar {
+    @include bg;
+}
+
+// ********************************************************
+// Right Side
+// ********************************************************
+.components-panel{
+    @include bg;
+}
+
+.interface-interface-skeleton__sidebar {
+    @include bg;
+}
+
+// ********************************************************
+// Components
+// ********************************************************
+
+// Tabs
+
+.components-panel__body{
+    @include bg;
+}
+
+.interface-complementary-area h2{
+    @include bg;
+}
+
+.components-panel__body-toggle.components-button{
+    @include bg_hover;
+}
+
+// Topbar
+.components-popover.block-editor-block-popover:not(.block-editor-block-popover__inbetween, .block-editor-block-popover__drop-zone, .block-editor-block-list__block-side-inserter-popover) .components-popover__content * {
+    @include bg;
+}
+
+select{
+    @include bg;
+}
+
+.components-input-control__container{
+    @include bg;
+}
+
+// .edit-post-editor__document-overview-panel-header{
+//     @include bg;
+// }
+
+// .block-editor-inserter__tabs .components-tab-panel__tabs {
+//     @include bg;
+// }
+
+// // Search
+
+// .components-search-control__input{
+//     @include bg2;
+// }
+
+
+// .edit-post-header{
+//     background: var(--swk-editor--bg);
+// }
+
+// .is-sidebar-opened .interface-interface-skeleton__sidebar {
+//     border-left: 1px solid var(--swk-editor--bg);
+//     background: var(--swk-editor--bg);
+// }
+
+// .components-panel__header{
+//     background: var(--swk-editor--bg);
+// }
+
+// .interface-complementary-area .components-panel {
+//     background: var(--swk-editor--bg);
+//     color: var(--swk-editor--text);
+// }
+
+// .components-panel__body+.components-panel__body, 
+// .components-panel__body+.components-panel__header, 
+// .components-panel__header+.components-panel__body, 
+// .components-panel__header+.components-panel__header {
+//     background: var(--swk-editor--bg);
+//     color: var(--swk-editor--text);
+// }
+
+// .components-panel__body-title{
+//     background: var(--swk-editor--bg);
+//     color: var(--swk-editor--text);
+// }
+
+// .components-panel__body-title:hover{
+//     background: var(--swk-editor--bg_hover);
+// }
+
+// .components-panel__body{
+//     border-color: var(--swk-editor--border);
+//     color: var(--swk-editor--text);
+// }
+
+// .components-panel__body-toggle.components-button {
+//     color: var(--swk-editor--text);
+// }
+
+// .components-panel__body-title{
+//     color: yellow;
+// }
+
+// /* ******************************************************** */
+// /* Componenents */
+// /* ******************************************************** */
+
+// .components-input-control__container{
+//     background: var(--swk-editor--bg);
+//     color: var(--swk-editor--text);
+// }
+
+
+// /* ******************************************************** */
+// /* Footer */
+// /* ******************************************************** */
+
+// .interface-interface-skeleton__footer,
+// .interface-interface-skeleton__footer .block-editor-block-breadcrumb,
+// .block-editor-block-breadcrumb__button.components-button, .block-editor-block-breadcrumb__current {
+//     background: var(--swk-editor--bg);
+//     color: var(--swk-editor--text);
+//     border-color: var(--swk-editor--border);
+// }
+
+// /* ******************************************************** */
+// /* IFrame */
+// /* ******************************************************** */
+
+// Editor
+:root {
+    --wp-admin-theme-color: var(--wp-components-color-accent);
+    --wp-admin-theme-color--rgb: 0,124,186;
+    --wp-admin-theme-color-darker-10: #006ba1;
+    --wp-admin-theme-color-darker-10--rgb: 0,107,161;
+    --wp-admin-theme-color-darker-20: #005a87;
+    --wp-admin-theme-color-darker-20--rgb: 0,90,135;
+    --wp-admin-border-width-focus: 2px;
+    --wp-block-synced-color: #7a00df;
+    --wp-block-synced-color--rgb: 122,0,223;
+}
+
+
+.editor-styles-wrapper {
+    background-color: #2a2a2a !important;
+    background-color: var(--swk-editor-800) !important;
+    color: var(--swk-editor-400) !important;
+    font-family: var(--wp--preset--font-family--system-font);
+    font-size: var(--wp--preset--font-size--medium);
+    line-height: 1.6;
+    --wp--style--root--padding-top: var(--wp--preset--spacing--40);
+    --wp--style--root--padding-right: var(--wp--preset--spacing--30);
+    --wp--style--root--padding-bottom: var(--wp--preset--spacing--40);
+    --wp--style--root--padding-left: var(--wp--preset--spacing--30);
+}
+
+.editor-styles-wrapper {
+    p:hover, h1:hover, h2:hover, h3:hover, h4:hover, pre:hover {
+        color: var(--swk-editor-300) !important;
+        transition: all 0.2s ease;
+    }
+}
